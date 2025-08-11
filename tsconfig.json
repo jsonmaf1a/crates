@@ -1,0 +1,25 @@
+{
+    "include": ["src/**/*.ts", "global.d.ts"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "test",
+        "**/*spec.ts"
+    ],
+    "extends": "./tsconfig.base.json",
+    "references": [
+        {
+            "path": "./libs/shared"
+        },
+        {
+            "path": "./apps/api"
+        },
+        {
+            "path": "./apps/web"
+        },
+        {
+            "path": "./apps/bot"
+        }
+    ],
+    "files": []
+}

@@ -1,0 +1,22 @@
+{
+    "name": "crates",
+    "type": "module",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "libs/*"
+    ],
+    "scripts": {
+        "dev": "bun --filter='*' dev",
+        "build": "bun --filter='*' run build",
+        "lint": "bun --filter='*' run lint",
+        "lint:ts": "bun --filter='*' run lint:ts",
+        "shared:build": "bun --filter=./libs/shared run build"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    }
+}
