@@ -6,12 +6,16 @@
     "lint:ts": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/pg": "^8.15.5",
+    "kysely-ctl": "^0.15.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@crates/shared": "workspace:*"
+    "@crates/shared": "workspace:*",
+    "kysely": "^0.28.5",
+    "pg": "^8.16.3"
   }
 }

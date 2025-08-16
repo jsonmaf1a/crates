@@ -4,7 +4,6 @@
         "target": "ESNext",
         "module": "ESNext",
         "useDefineForClassFields": true,
-        "skipLibCheck": true,
         "declaration": true,
         "declarationMap": true,
         "sourceMap": true,
@@ -30,6 +29,7 @@
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "downlevelIteration": true,
+        "exactOptionalPropertyTypes": true,
         "jsx": "react-jsx",
         "allowJs": true
     }

@@ -3,6 +3,9 @@
         "outDir": "./dist",
         "declaration": true,
         "strict": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "exactOptionalPropertyTypes": true,
         "esModuleInterop": true,
         "lib": ["ESNext"],
         "types": []
