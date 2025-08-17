@@ -1,25 +1,27 @@
 {
-  "name": "crates",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "private": true,
-  "scripts": {
-    "dev": "bun --filter='*' dev",
-    "build": "bun --filter='*' run build",
-    "lint": "bun --filter='*' run lint",
-    "lint:ts": "bun --filter='*' run lint:ts",
-    "shared:build": "bun --filter=./libs/shared run build"
-  },
-  "type": "module",
-  "workspaces": [
-    "apps/*",
-    "libs/*"
-  ],
-  "dependencies": {
-    "zod": "^4.0.17"
-  }
+    "name": "crates",
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.0",
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "private": true,
+    "scripts": {
+        "dev": "bun --filter='*' dev",
+        "build": "bun --filter='*' run build",
+        "lint": "bun --filter='*' run lint",
+        "format": "bun --filter='*' run format",
+        "lint:ts": "bun --filter='*' run lint:ts",
+        "shared:build": "bun --filter=./libs/shared run build"
+    },
+    "type": "module",
+    "workspaces": [
+        "apps/*",
+        "libs/*"
+    ],
+    "dependencies": {
+        "zod": "^4.0.17"
+    }
 }

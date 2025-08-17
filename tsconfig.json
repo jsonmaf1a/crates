@@ -1,11 +1,6 @@
 {
     "include": ["src/**/*.ts", "global.d.ts"],
-    "exclude": [
-        "node_modules",
-        "dist",
-        "test",
-        "**/*spec.ts"
-    ],
+    "exclude": ["node_modules", "dist", "test", "**/*spec.ts"],
     "extends": "./tsconfig.base.json",
     "references": [
         {

@@ -22,7 +22,7 @@
         "attributePosition": "auto",
         "indentStyle": "space",
         "indentWidth": 4,
-        "lineWidth": 60,
+        "lineWidth": 80,
         "lineEnding": "lf"
     },
     "javascript": {
@@ -42,6 +42,11 @@
     "json": {
         "formatter": {
             "trailingCommas": "none"
+        }
+    },
+    "html": {
+        "formatter": {
+            "enabled": true
         }
     }
 }
