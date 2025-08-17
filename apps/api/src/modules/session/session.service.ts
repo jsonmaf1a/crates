@@ -6,10 +6,17 @@ export const SessionService = {
         const nowUtc = new Date();
         const tomorrowUtc = new Date(nowUtc.getTime() + 24 * 60 * 60 * 1000);
 
-        return SessionRepository.create({
+        const session = await SessionRepository.create({
             user_id: userId,
             expires_at: tomorrowUtc.toISOString(),
         });
+        if (!session) throw new Error("Failed to create session");
+
+        const maxAge = Math.floor(
+            (tomorrowUtc.getTime() - nowUtc.getTime()) / 1000,
+        );
+
+        return { sessionId: session.id, maxAge };
     },
 
     async getById(id: string) {
@@ -18,7 +25,7 @@ export const SessionService = {
 
     async deleteById(id: string) {
         const session = await SessionRepository.getById(id);
-        if (!session) throw new Error("Session not found.");
+        if (!session) throw new Error("Session not found");
 
         return SessionRepository.deleteById(id);
     },

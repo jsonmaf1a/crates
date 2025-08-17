@@ -14,10 +14,10 @@ export const AuthService = {
         });
         if (!user) throw new Error("Failed to create user");
 
-        const session = await SessionService.create(user.id);
-        if (!session) throw new Error("Failed to create session");
+        const { sessionId, maxAge } = await SessionService.create(user.id);
+        if (!sessionId) throw new Error("Failed to create session");
 
-        return session.id;
+        return { sessionId, maxAge };
     },
 
     async login(body: LoginBody) {
@@ -28,10 +28,10 @@ export const AuthService = {
         const isPassValid = Bun.password.verifySync(password, user.password);
         if (!isPassValid) throw new Error("Invalid password");
 
-        const session = await SessionService.create(user.id);
-        if (!session) throw new Error("Failed to create session");
+        const { sessionId, maxAge } = await SessionService.create(user.id);
+        if (!sessionId) throw new Error("Failed to create session");
 
-        return session.id;
+        return { sessionId, maxAge };
     },
 
     async logout(req: Request) {

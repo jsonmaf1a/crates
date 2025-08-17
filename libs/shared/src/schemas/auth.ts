@@ -20,7 +20,7 @@ export const RegisterSchema = zod
     })
     .refine((data) => data.password === data.confirmPassword, {
         message: "Passwords do not match",
-        path: ["confirmPassword"], // attach error to confirmPassword field
+        path: ["confirmPassword"],
     });
 
 export const LoginSchema = zod.object({

@@ -7,8 +7,8 @@ import {
 import { AuthService } from "./auth.service";
 
 const AUTH_COOKIE = {
-    set: (sessionId: string) =>
-        `session=${sessionId}; HttpOnly; Path=/; SameSite=Strict; Secure; Max-Age=86400`,
+    set: (sessionId: string, maxAge: number) =>
+        `session=${sessionId}; HttpOnly; Path=/; SameSite=Strict; Secure; Max-Age=${maxAge}`,
     clear: "session=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
 };
 
@@ -24,12 +24,12 @@ export const AuthController = {
 
         try {
             const { confirmPassword: _, ...data } = result.data;
-            const sessionId = await AuthService.register(data);
+            const { sessionId, maxAge } = await AuthService.register(data);
 
             return new Response("User registered successfully", {
                 status: HTTPStatus.CREATED,
                 headers: {
-                    "Set-Cookie": AUTH_COOKIE.set(sessionId),
+                    "Set-Cookie": AUTH_COOKIE.set(sessionId, maxAge),
                 },
             });
         } catch (error) {
@@ -49,12 +49,12 @@ export const AuthController = {
             });
 
         try {
-            const sessionId = await AuthService.login(result.data);
+            const { sessionId, maxAge } = await AuthService.login(result.data);
 
             return new Response("Successfully logged in", {
                 status: HTTPStatus.OK,
                 headers: {
-                    "Set-Cookie": AUTH_COOKIE.set(sessionId),
+                    "Set-Cookie": AUTH_COOKIE.set(sessionId, maxAge),
                 },
             });
         } catch (error) {
