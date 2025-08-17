@@ -12,8 +12,7 @@
         "build:bot": "bun --filter=@crates/bot run build",
         "lint": "bun --filter='*' run lint",
         "format": "bun --filter='*' run format",
-        "lint:ts": "bun --filter='*' run lint:ts",
-        "shared:build": "bun --filter=./libs/shared run build"
+        "lint:ts": "bun --filter='*' run lint:ts"
     },
     "type": "module",
     "workspaces": [

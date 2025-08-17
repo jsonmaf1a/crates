@@ -1,15 +1,20 @@
 # @crates/bot
 
-To install dependencies:
+> brings samples to Telegram
+
+Telegram bot for discovering and manipulating audio samples.
+
+## Setup
 
 ```bash
 bun install
+bun run dev
 ```
 
-To run:
+## Scripts
 
-```bash
-bun run src/main.ts
-```
+    - dev – Start bot in dev mode
 
-This project was created using `bun init` in bun v1.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Env
+
+    - BOT_TOKEN – Telegram bot token

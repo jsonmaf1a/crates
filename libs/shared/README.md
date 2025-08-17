@@ -1,15 +1,15 @@
 # @crates/shared
 
-To install dependencies:
+> shared types and utilities
+
+## Setup
 
 ```bash
 bun install
+bun run dev
 ```
 
-To run:
+## Scripts
 
-```bash
-bun run src/main.ts
-```
-
-This project was created using `bun init` in bun v1.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+    - build – Build lib
+    - dev – Run in watch mode
