@@ -5,8 +5,8 @@ export const HTTPStatus = {
     UNAUTHORIZED: 401,
     FORBIDDEN: 403,
     NOT_FOUND: 404,
+    CONFLICT: 409,
     INTERNAL_SERVER_ERROR: 500,
 } as const;
 
-export type HTTPStatusCode =
-    (typeof HTTPStatus)[keyof typeof HTTPStatus];
+export type HTTPStatusCode = (typeof HTTPStatus)[keyof typeof HTTPStatus];

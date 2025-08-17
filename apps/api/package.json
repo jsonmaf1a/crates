@@ -1,21 +1,36 @@
 {
-  "name": "@crates/api",
-  "module": "src/main.ts",
-  "type": "module",
-  "scripts": {
-    "lint:ts": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/pg": "^8.15.5",
-    "kysely-ctl": "^0.15.3"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "@crates/shared": "workspace:*",
-    "kysely": "^0.28.5",
-    "pg": "^8.16.3"
-  }
+    "name": "@crates/api",
+    "module": "src/main.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "bun run --watch src/main.ts",
+        "start": "bun run src/main.ts",
+        "test": "bun test",
+        "format": "bunx biome format src --write .",
+        "lint": "bunx biome lint --error-on-warnings src",
+        "lint:ts": "tsc --noEmit",
+        "migrate:up": "bunx kysely migrate up",
+        "migrate:down": "bunx kysely migrate down",
+        "migrate:latest": "bunx kysely migrate latest",
+        "migrate:status": "bunx kysely migrate list",
+        "compose:up": "docker compose up -d",
+        "compose:down": "docker compose down",
+        "compose:reset": "docker compose down -v && docker compose up -d",
+        "db:shell": "docker compose exec db psql -U postgres -h localhost",
+        "db:logs": "docker compose logs -f db"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.0",
+        "@types/bun": "latest",
+        "@types/pg": "^8.15.5",
+        "kysely-ctl": "^0.15.3"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@crates/shared": "workspace:*",
+        "kysely": "^0.28.5",
+        "pg": "^8.16.3"
+    }
 }

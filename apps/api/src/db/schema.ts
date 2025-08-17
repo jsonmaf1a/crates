@@ -8,11 +8,11 @@ import type {
 } from "kysely";
 
 export interface Database {
-    user: UserTable;
-    session: SessionTable;
+    users: UsersTable;
+    sessions: SessionsTable;
 }
 
-export interface UserTable {
+export interface UsersTable {
     id: Generated<ID>;
     username: string;
     email: string;
@@ -20,16 +20,16 @@ export interface UserTable {
     created_at: ColumnType<Date, string | undefined, never>;
 }
 
-export type User = Selectable<UserTable>;
-export type UserCreate = Insertable<UserTable>;
-export type UserUpdate = Updateable<UserTable>;
+export type User = Selectable<UsersTable>;
+export type UserCreate = Insertable<UsersTable>;
+export type UserUpdate = Updateable<UsersTable>;
 
-export interface SessionTable {
-    id: Generated<ID>;
+export interface SessionsTable {
+    id: ColumnType<string, never, never>;
     user_id: ID;
     expires_at: ColumnType<Date, string | undefined, never>;
 }
 
-export type Session = Selectable<SessionTable>;
-export type SessionCreate = Insertable<SessionTable>;
-export type SessionUpdate = Updateable<SessionTable>;
+export type Session = Selectable<SessionsTable>;
+export type SessionCreate = Insertable<SessionsTable>;
+export type SessionUpdate = Updateable<SessionsTable>;

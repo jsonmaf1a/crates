@@ -7,6 +7,6 @@ declare module "bun" {
         DATABASE_PASSWORD: string;
         DATABASE_MAX: number;
         DISCOGS_API_KEY: string;
-        PORT: string;
+        PORT: number;
     }
 }

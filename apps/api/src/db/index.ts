@@ -16,3 +16,13 @@ export const dialect = new PostgresDialect({
 export const db = new Kysely<Database>({
     dialect,
 });
+
+export async function checkDbConnection() {
+    try {
+        await db.selectFrom("users").limit(1).execute();
+        console.log("Database connection successful");
+    } catch (error) {
+        console.error("Database connection failed:", error);
+        process.exit(1);
+    }
+}
