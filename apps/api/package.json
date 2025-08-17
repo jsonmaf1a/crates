@@ -3,7 +3,9 @@
     "module": "src/main.ts",
     "type": "module",
     "scripts": {
+        "predev": "bun --filter=@crates/shared run dev",
         "dev": "bun run --watch src/main.ts",
+        "prestart": "bun --filter=@crates/shared run build",
         "start": "bun run src/main.ts",
         "test": "bun test",
         "format": "bunx biome format src --write .",

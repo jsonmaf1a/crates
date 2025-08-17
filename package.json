@@ -1,16 +1,15 @@
 {
     "name": "crates",
-    "devDependencies": {
-        "@biomejs/biome": "^2.2.0",
-        "@types/bun": "latest"
-    },
-    "peerDependencies": {
-        "typescript": "^5.0.0"
-    },
     "private": true,
     "scripts": {
         "dev": "bun --filter='*' dev",
+        "dev:api": "bun --filter=@crates/api dev",
+        "dev:web": "bun --filter=@crates/web dev",
+        "dev:bot": "bun --filter=@crates/bot dev",
         "build": "bun --filter='*' run build",
+        "build:api": "bun --filter=@crates/api run build",
+        "build:web": "bun --filter=@crates/web run build",
+        "build:bot": "bun --filter=@crates/bot run build",
         "lint": "bun --filter='*' run lint",
         "format": "bun --filter='*' run format",
         "lint:ts": "bun --filter='*' run lint:ts",
@@ -23,5 +22,10 @@
     ],
     "dependencies": {
         "zod": "^4.0.17"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.0",
+        "@types/bun": "latest",
+        "typescript": "^5.0.0"
     }
 }

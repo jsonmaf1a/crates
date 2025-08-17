@@ -3,6 +3,8 @@
     "module": "src/main.ts",
     "type": "module",
     "scripts": {
+        "predev": "bun --filter=@crates/shared run dev",
+        "prestart": "bun --filter=@crates/shared run build",
         "format": "bunx biome format src --write .",
         "lint": "bunx biome lint --error-on-warnings src",
         "lint:ts": "tsc --noEmit"
